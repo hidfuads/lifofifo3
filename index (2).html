@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFO & LIFO Bestandsrechner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    section {
+      padding: 20px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+
+    input,
+    button {
+      padding: 8px 12px;
+      font-size: 1rem;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    #result {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    .info-text {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      width: 300px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    .quote-box {
+      background-color: #f9f9f9;
+      border-left: 5px solid #4CAF50;
+      padding: 15px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .interactive-section {
+      background-color: #e8f5e9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+
+    .interactive-section h3 {
+      text-align: center;
+    }
+
+    .interactive-section button {
+      width: 100%;
+      font-size: 1.2rem;
+      padding: 12px;
+    }
+
+    .quiz-container {
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    .quiz-container button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .quiz-container button:hover {
+      background-color: #45a049;
+    }
+
+    .quiz-options {
+      margin: 10px 0;
+    }
+
+    .quiz-result {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      color: #4CAF50;
+      margin-top: 20px;
+    }
+
+    .names-container {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>FIFO & LIFO Bestandsrechner</h1>
+    <p>Berechne den Wert von Beständen nach FIFO und LIFO Prinzipien!</p>
+  </header>
+
+  <section>
+    <h2>Was sind FIFO und LIFO?</h2>
+    <div class="section-content">
+      <div class="info-text">
+        <h3>FIFO (First In, First Out)</h3>
+        <p><strong>FIFO</strong> bedeutet, dass der zuerst gekaufte Artikel auch der erste ist, der verkauft oder verbraucht wird. Es wird angenommen, dass die ältesten Bestände zuerst verkauft werden. Dieses Prinzip wird häufig in der Lebensmittelindustrie verwendet, bei der Produkte, die zuerst gekauft wurden, auch zuerst aus dem Lager entfernt werden müssen, um eine Verderblichkeit zu vermeiden.</p>
+        <p><strong>Beispiel:</strong> Du kaufst 100 Äpfel am 01.01. und 100 Äpfel am 15.01. Wenn du nun 150 Äpfel verkaufen möchtest, würdest du zuerst die Äpfel vom 01.01. verkaufen (also die älteren). Dies entspricht dem FIFO-Prinzip.</p>
+      </div>
+      <div class="info-text">
+        <h3>LIFO (Last In, First Out)</h3>
+        <p><strong>LIFO</strong> bedeutet, dass der zuletzt gekaufte Artikel auch der erste ist, der verkauft oder verbraucht wird. Es wird angenommen, dass die neuesten Bestände zuerst genutzt werden. Diese Methode wird in einigen Branchen verwendet, wenn die neuesten Produkte den höchsten Wert haben.</p>
+        <p><strong>Beispiel:</strong> Wenn du 100 Äpfel am 01.01. kaufst und 100 Äpfel am 15.01., und du 150 Äpfel verkaufen möchtest, würdest du die Äpfel vom 15.01. zuerst verkaufen (also die neuesten). Das entspricht dem LIFO-Prinzip.</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <p><strong>"FIFO garantiert, dass frische Bestände zuerst verbraucht werden, während LIFO oft bei der Verwaltung von Vorräten mit steigenden Preisen bevorzugt wird."</strong></p>
+    </div>
+
+    <div class="image-container">
+      <img src="https://via.placeholder.com/300x200.png?text=FIFO+Grafik" alt="FIFO Beispiel">
+      <img src="https://via.placeholder.com/300x200.png?text=LIFO+Grafik" alt="LIFO Beispiel">
+    </div>
+  </section>
+
+  <section class="interactive-section">
+    <h3>Interaktive Übung</h3>
+    <p>Teste dein Wissen zu FIFO und LIFO mit einer kleinen Übung!</p>
+    <button onclick="startQuiz()">Quiz starten</button>
+    <div id="quizResult" class="quiz-result"></div>
+  </section>
+
+  <section>
+    <h2>Berechnung der Bestandswerte</h2>
+
+    <div class="input-container">
+      <label for="date">Datum: <input type="date" id="date"></label>
+      <label for="qty">Menge: <input type="number" id="qty"></label>
+      <label for="price">Preis pro Einheit (€): <input type="number" id="price" step="0.01"></label>
+      <button onclick="addEntry()">Zugang hinzufügen</button>
+    </div>
+
+    <table id="table">
+      <tr>
+        <th>Datum</th>
+        <th>Menge</th>
+        <th>Preis</th>
+      </tr>
+    </table>
+
+    <h3>Zu berechnende Bestandsmenge:</h3>
+    <div class="input-container">
+      <input type="number" id="targetQty" placeholder="Menge eingeben">
+      <button onclick="calcFIFO()">FIFO berechnen</button>
+      <button onclick="calcLIFO()">LIFO berechnen</button>
+    </div>
+
+    <div id="result"></div>
+  </section>
+
+  <section class="info-text">
+    <h2>Wichtige Informationen zu FIFO und LIFO</h2>
+    <p>Die Prinzipien FIFO (First In, First Out) und LIFO (Last In, First Out) sind zentrale Konzepte in der Bestandsverwaltung und werden häufig verwendet, um den Wert von Beständen zu berechnen. Aber warum sollten Unternehmen überhaupt zwischen diesen beiden Prinzipien wählen?</p>
+    <p><strong>Wann sollte man FIFO verwenden?</strong> FIFO ist besonders vorteilhaft, wenn Produkte eine begrenzte Haltbarkeit haben oder eine Verderblichkeit aufweisen. In der Lebensmittelindustrie, bei Pharmazeutika oder in ähnlichen Sektoren ist es entscheidend, dass die älteren Bestände zuerst verbraucht werden, um Verfallsdaten zu vermeiden und Frische zu garantieren. Es wird auch bei der Berechnung von Lagerbeständen bevorzugt, wenn die Preise relativ stabil oder steigend sind, da es die niedrigeren Kosten der älteren Bestände zuerst berücksichtigt.</p>
+    <p><strong>Wann ist LIFO besser?</strong> LIFO wird oft in Situationen eingesetzt, in denen die zuletzt gekauften Produkte einen höheren Wert haben oder die Preise im Laufe der Zeit steigen. Diese Methode ist besonders in Zeiten hoher Inflation oder bei der Verwaltung von Beständen mit steigenden Preisen von Vorteil. In solchen Fällen spiegelt der LIFO-Wert den aktuellen Marktpreis wider und ermöglicht eine realistischere Berechnung des Gewinns, da die neuesten Bestände zu den höheren Preisen bewertet werden.</p>
+    <p>Beide Methoden haben ihre Vor- und Nachteile, und die Wahl zwischen FIFO und LIFO hängt von den spezifischen Bedürfnissen des Unternehmens sowie den wirtschaftlichen Bedingungen ab.</p>
+  </section>
+
+  <section class="names-container">
+    <p>Diese Webseite wurde erstellt von:</p>
+    <p>Finn Ernst, Nils Hoffmann, Aaron Seith, Leon Laukert, Santino Alemanno</p>
+  </section>
+
+  <script>
+    let entries = [];
+
+    function addEntry() {
+      const date = document.getElementById('date').value;
+      const qty = Number(document.getElementById('qty').value);
+      const price = Number(document.getElementById('price').value);
+      if (!date || !qty || !price) {
+        alert("Bitte alle Felder ausfüllen!");
+        return;
+      }
+    
+  </body>
+  
+</html>
